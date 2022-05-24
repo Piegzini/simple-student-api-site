@@ -1,14 +1,18 @@
-import Header from './components/Header';
-import Banner from './components/Banner';
-import Example from './components/Example';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './routes/Home';
 
 function App() {
   return (
-    <>
-      <Header />
-      <Banner />
-      <Example />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/">
+          <Route index element={<Home />} />
+          <Route path="register" element={<Home />} />
+
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

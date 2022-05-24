@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Text } from '@chakra-ui/react';
 
-function Header() {
+function Navigaton() {
   return (
     <header>
       <Box d="flex" alignItems="center" justifyContent="space-between" ml={12} mr={6}>
@@ -14,4 +14,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default Navigaton;
