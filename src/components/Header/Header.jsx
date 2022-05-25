@@ -11,7 +11,7 @@ function Header() {
 
         <List width={['100%', '100%', '60%', '50%', '30%']}>
           <Flex width="100%" justifyContent="space-evenly">
-            { routes.map((path) => <Navlistitem path={path} />) }
+            { routes.map((path) => <Navlistitem path={path} key={path} />) }
           </Flex>
         </List>
       </Flex>

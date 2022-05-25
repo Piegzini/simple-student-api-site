@@ -11,7 +11,7 @@ const customTheme = extendTheme({
     secondary: '#706EBC',
     highlight: '#BEEF7E',
     warning: '#F9F871',
-    grey: {
+    gray: {
       light: '#222831',
       dark: '#393E46',
     },

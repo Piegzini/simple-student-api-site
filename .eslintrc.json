@@ -20,6 +20,9 @@
   "rules": {
     "no-unused-vars": [
       "warn"
+    ],
+    "react/jsx-no-useless-fragment": [
+      "off"
     ]
   }
 }

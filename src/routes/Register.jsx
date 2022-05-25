@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Box, Button, FormControl, FormLabel, Heading, Input,
+  Box, Button, Flex, FormControl, FormLabel, Heading, Input,
 } from '@chakra-ui/react';
 
 function Register() {
@@ -15,9 +15,10 @@ function Register() {
           width="20%"
           display="flex"
           flexDirection="column"
-          backgroundColor="#eee"
-          padding="14"
+          backgroundColor="gray.light"
+          padding="1"
           borderRadius="10"
+          borderColor="white"
 
         >
           <FormControl padding="4">
@@ -32,11 +33,11 @@ function Register() {
             <FormLabel htmlFor="password">Password </FormLabel>
             <Input id="password" type="password" />
           </FormControl>
-          <Box mt="8" width="100%" display="flex" justifyContent="center">
-            <Button width="50%" colorScheme="teal" size="md">
-              Button
+          <Flex mt="4" mb="4" width="100%" display="flex" justifyContent="center">
+            <Button width="50%" colorScheme="whatsapp" size="md">
+              Register
             </Button>
-          </Box>
+          </Flex>
 
         </Box>
 

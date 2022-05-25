@@ -14,10 +14,11 @@ const apiAddress = 'http://localhost:4000/api/v1/';
 
 function QuerySender() {
   const [isRequestPending, setRequestIsPending] = useState(false);
-  const [responseJson, setResponseJson] = useState();
+  const [jsonData, setJsonData] = useState();
 
   const sendApiRequest = async (endPoint) => {
     setRequestIsPending(true);
+    setJsonData('');
 
     try {
       let { data } = await axios.get(`${apiAddress}${endPoint}`, {
@@ -25,9 +26,8 @@ function QuerySender() {
       });
 
       data = JSON.stringify(data, 'space', 2);
-      setResponseJson(data);
+      setJsonData(data);
     } catch (e) {
-      setResponseJson(' ');
       console.error(e);
     } finally {
       setRequestIsPending(false);
@@ -51,7 +51,7 @@ function QuerySender() {
         borderRadius="4"
         fontSize="sm"
       >
-        <ResultBoard isPending={isRequestPending} jsonData={responseJson} />
+        <ResultBoard isPending={isRequestPending} jsonData={jsonData} />
 
       </Box>
     </Box>
