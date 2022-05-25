@@ -1,15 +1,31 @@
 import React from 'react';
-import { Box, Text } from '@chakra-ui/react';
+import {
+  Flex, Heading, List, ListItem, Text,
+} from '@chakra-ui/react';
+import { NavLink } from 'react-router-dom';
 
 function Header() {
   return (
     <header>
-      <Box width="60%" d="flex" alignItems="center" justifyContent="space-between" ml={12} mr={6}>
-        <Box>
-          <Text fontSize="xl"> SIMPLE STUDENT API </Text>
-        </Box>
-        <Box />
-      </Box>
+      <Flex mx="20%" mt={4} justifyContent="space-between">
+        <Heading size="m" fontWeight="bold" letterSpacing="1.5px"> SIMPLE STUDENT API </Heading>
+        <List width="25%">
+          <Flex width="100%" justifyContent="space-evenly">
+            <ListItem>
+              <NavLink to="register"><Text fontWeight="semibold" transition="0.3s" _hover={{ color: 'primary', transform: 'scale(1.12)' }}>HOME</Text></NavLink>
+            </ListItem>
+            <ListItem>
+              <NavLink to="register"><Text fontWeight="semibold" transition="0.3s" _hover={{ color: 'primary', transform: 'scale(1.12)' }}>REGISTER</Text></NavLink>
+
+            </ListItem>
+            <ListItem>
+              <NavLink to="register"><Text fontWeight="semibold" transition="0.3s" _hover={{ color: 'primary', transform: 'scale(1.12)' }}>LOGIN</Text></NavLink>
+            </ListItem>
+          </Flex>
+        </List>
+
+      </Flex>
+
     </header>
   );
 }

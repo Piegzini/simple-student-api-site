@@ -19,7 +19,19 @@ const customTheme = extendTheme({
   },
   fonts: {
     body: '\'Source Code Pro\', monospace',
-    heading: '\'Lato\', sans-serif',
+    heading: '\'Source Code Pro\', monospace',
+  },
+
+  fontWeights: {
+    hairline: 100,
+    thin: 200,
+    light: 300,
+    normal: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
+    extrabold: 800,
+    black: 900,
   },
 
   components: {
@@ -33,19 +45,14 @@ const customTheme = extendTheme({
         color: 'text',
       },
     },
+    ListItem: {
+      baseStyle: {
+        fontFamily: '\'Lato\', sans-serif',
+      },
+    },
+
   },
 
 });
 
 export default customTheme;
-// fontWeights: {
-//   hairline: 100,
-//     thin: 200,
-//     light: 300,
-//     normal: 400,
-//     medium: 500,
-//     semibold: 600,
-//     bold: 700,
-//     extrabold: 800,
-//     black: 900,
-// },
