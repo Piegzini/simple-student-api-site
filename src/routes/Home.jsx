@@ -1,12 +1,12 @@
 import React from 'react';
 import Banner from '../components/Banner';
-import Example from '../components/QuerySender/Example';
+import QuerySender from '../components/QuerySender/QuerySender';
 
 function Home() {
   return (
     <>
       <Banner />
-      <Example />
+      <QuerySender />
     </>
   );
 }
