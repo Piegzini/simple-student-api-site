@@ -1,6 +1,6 @@
 import React from 'react';
 import Banner from '../components/Banner';
-import Example from '../components/Example';
+import Example from '../components/QuerySender/Example';
 
 function Home() {
   return (
