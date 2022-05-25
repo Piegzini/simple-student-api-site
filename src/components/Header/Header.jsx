@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex, Heading, List } from '@chakra-ui/react';
 import Navlistitem from './NavListItem';
 
-const routes = ['Home', 'Register', 'Login'];
+const routes = ['Register', 'Login'];
 function Header() {
   return (
     <header>
@@ -11,7 +11,8 @@ function Header() {
 
         <List width={['100%', '100%', '60%', '50%', '30%']}>
           <Flex width="100%" justifyContent="space-evenly">
-            { routes.map((path) => <Navlistitem path={path} key={path} />) }
+            <Navlistitem path="/" name="Home" key="Home" />
+            { routes.map((path) => <Navlistitem path={path} name={path} key={path} />) }
           </Flex>
         </List>
       </Flex>
