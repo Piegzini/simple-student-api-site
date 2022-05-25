@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './routes/Home';
-import Navigaton from './components/Navigaton';
+import Header from './components/Header';
 import Register from './routes/Register';
 
 function App() {
   return (
     <BrowserRouter>
-      <Navigaton />
+      <Header />
       <Routes>
         <Route path="/">
           <Route index element={<Home />} />

@@ -7,7 +7,6 @@ import {
   InputGroup,
   InputLeftAddon,
   InputRightAddon,
-  Text,
 } from '@chakra-ui/react';
 import axios from 'axios';
 
@@ -41,7 +40,7 @@ function Example() {
       <Box width="50%" mt="10" display="flex" justifyContent="center">
         <Box width="100%" maxWidth="700px">
           <InputGroup size="m" width="100%">
-            <InputLeftAddon px="3" children={apiAddress} />
+            <InputLeftAddon px="3" children={apiAddress} backgroundColor="primary" />
             <Input
               px="2"
               minWidth="100px"
@@ -49,19 +48,31 @@ function Example() {
               value={endPoint}
               onChange={(e) => setEndPoint(e.target.value)}
             />
-            <InputRightAddon>
-              <Button borderRadius="0" onClick={sendApiRequest}> Submit </Button>
+            <InputRightAddon backgroundColor="primary">
+              <Button
+                borderRadius="0"
+                onClick={sendApiRequest}
+                backgroundColor="transparent"
+              >
+                Submit
+              </Button>
             </InputRightAddon>
           </InputGroup>
         </Box>
         <Box />
       </Box>
-      <Box width="30%" height="500px" backgroundColor="#E0E0E0" mt="12" overflowY="scroll">
-        <Text fontSize="sm">
-          <pre>
-            {responseJson}
-          </pre>
-        </Text>
+      <Box
+        width="30%"
+        height="500px"
+        backgroundColor="gray.900"
+        mt="12"
+        overflowY="auto"
+        borderRadius="4"
+        fontSize="sm"
+      >
+        <pre>
+          {responseJson}
+        </pre>
 
       </Box>
     </Box>
