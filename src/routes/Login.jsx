@@ -5,12 +5,12 @@ import {
 } from '@chakra-ui/react';
 import axios from 'axios';
 
-function Register() {
+export default function Login() {
   const { register, handleSubmit } = useForm();
 
   const send = async (data) => {
     try {
-      const { statusCode, message } = await axios.post('http://localhost:4000/service/register', {
+      const { statusCode, message } = await axios.post('http://localhost:4000/service/login', {
         ...data,
       });
       console.log(statusCode, message);
@@ -28,7 +28,8 @@ function Register() {
       <Box width="100%" display="flex" justifyContent="center" mt="20">
         <Box
           as="form"
-          width="15%"
+          minWidth="200px"
+          width={{ base: '25%', xl: '15%' }}
           display="flex"
           flexDirection="column"
           backgroundColor="gray.light"
@@ -43,17 +44,12 @@ function Register() {
             <Input id="username" type="username" {...register('username')} required />
           </FormControl>
           <FormControl padding="4">
-            <FormLabel htmlFor="email">Email </FormLabel>
-            <Input id="email" type="email" {...register('email')} required />
-          </FormControl>
-          <FormControl padding="4">
             <FormLabel htmlFor="password">Password </FormLabel>
-
             <Input id="password" type="password" {...register('password')} required />
           </FormControl>
           <Flex mt="4" mb="4" width="100%" display="flex" justifyContent="center">
             <Button type="submit" width="40%" colorScheme="whatsapp" size="md">
-              Register
+              login
             </Button>
           </Flex>
 
@@ -65,5 +61,3 @@ function Register() {
 
   );
 }
-
-export default Register;
