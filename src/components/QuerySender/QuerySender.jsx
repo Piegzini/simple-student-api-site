@@ -9,12 +9,14 @@ import {
 import axios from 'axios';
 import QueryInput from './QueryInput';
 import ResultBoard from './ResultBoard';
+import ErrorAlert from './ErrorAlert';
 
 const apiAddress = 'http://localhost:4000/api/v1/';
 
 function QuerySender() {
   const [isRequestPending, setRequestIsPending] = useState(false);
-  const [jsonData, setJsonData] = useState();
+  const [jsonData, setJsonData] = useState('');
+  const [error, setError] = useState('33333333333333333333333');
 
   const sendApiRequest = async (endPoint) => {
     setRequestIsPending(true);
@@ -28,33 +30,36 @@ function QuerySender() {
       data = JSON.stringify(data, 'space', 2);
       setJsonData(data);
     } catch (e) {
-      console.error(e);
+      setError(e.message);
+      setTimeout(() => setError(''), 4000);
     } finally {
       setRequestIsPending(false);
     }
   };
 
   return (
-    <Box width="100vw" mt="16" display="flex" flexDirection="column" alignItems="center">
-      <Box width="50%">
-        <Heading as="h2" textAlign="center">Try it now!</Heading>
+    <>
+      { error ? <ErrorAlert title={error} /> : null }
+      <Box width="100vw" mt="16" display="flex" flexDirection="column" alignItems="center">
+        <Box width="50%">
+          <Heading as="h2" textAlign="center">Try it now!</Heading>
+        </Box>
+        <Box width="50%" mt="10" display="flex" justifyContent="center" maxWidth="700px">
+          <QueryInput preset={apiAddress} submit={sendApiRequest} />
+        </Box>
+        <Box
+          width="30%"
+          height="500px"
+          backgroundColor="gray.900"
+          mt="12"
+          overflowY="auto"
+          borderRadius="4"
+          fontSize="sm"
+        >
+          <ResultBoard isPending={isRequestPending} jsonData={jsonData} />
+        </Box>
       </Box>
-      <Box width="50%" mt="10" display="flex" justifyContent="center" maxWidth="700px">
-        <QueryInput preset={apiAddress} submit={sendApiRequest} />
-      </Box>
-      <Box
-        width="30%"
-        height="500px"
-        backgroundColor="gray.900"
-        mt="12"
-        overflowY="auto"
-        borderRadius="4"
-        fontSize="sm"
-      >
-        <ResultBoard isPending={isRequestPending} jsonData={jsonData} />
-
-      </Box>
-    </Box>
+    </>
 
   );
 }
