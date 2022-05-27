@@ -11,19 +11,19 @@ import QueryInput from './QueryInput';
 import ResultBoard from './ResultBoard';
 import ErrorAlert from './ErrorAlert';
 
-const apiAddress = 'http://localhost:4000/api/v1/';
+const apiAddress = 'https://simple-student-api.herokuapp.com/api/v1/';
 
 function QuerySender() {
   const [isRequestPending, setRequestIsPending] = useState(false);
   const [jsonData, setJsonData] = useState('');
-  const [error, setError] = useState('33333333333333333333333');
+  const [error, setError] = useState('');
 
   const sendApiRequest = async (endPoint) => {
     setRequestIsPending(true);
     setJsonData('');
 
     try {
-      let { data } = await axios.get(`${apiAddress}${endPoint}`, {
+      let { data } = await axios.get(`/api/v1/${endPoint}`, {
         headers: { Authorization: `Bearer ${import.meta.env.VITE_TOKEN}` },
       });
 
@@ -31,7 +31,7 @@ function QuerySender() {
       setJsonData(data);
     } catch (e) {
       setError(e.message);
-      setTimeout(() => setError(''), 4000);
+      setTimeout(() => setError(''), 1500);
     } finally {
       setRequestIsPending(false);
     }
@@ -40,7 +40,7 @@ function QuerySender() {
   return (
     <>
       { error ? <ErrorAlert title={error} /> : null }
-      <Box width="100vw" mt="16" display="flex" flexDirection="column" alignItems="center">
+      <Box width="100vw" mt="20" display="flex" flexDirection="column" alignItems="center">
         <Box width="50%">
           <Heading as="h2" textAlign="center">Try it now!</Heading>
         </Box>

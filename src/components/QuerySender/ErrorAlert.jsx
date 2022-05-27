@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Alert, AlertIcon, AlertTitle, Box, Flex,
+  Alert, AlertIcon, AlertTitle, Flex,
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 

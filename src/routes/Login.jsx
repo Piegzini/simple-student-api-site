@@ -4,16 +4,18 @@ import {
   Box, Button, Flex, FormControl, FormLabel, Heading, Input,
 } from '@chakra-ui/react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
 
   const send = async (data) => {
     try {
-      const { statusCode, message } = await axios.post('http://localhost:4000/service/login', {
+      const { statusCode, message } = await axios.post('/service/login', {
         ...data,
       });
-      console.log(statusCode, message);
+      navigate('/', { replace: true });
     } catch (e) {
       console.error(e);
     }
