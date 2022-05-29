@@ -4,10 +4,10 @@ import {
 } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 
-export default function ErrorAlert({ title }) {
+export default function MessageAlert({ title, status }) {
   return (
     <Flex width="100%" justifyContent="center" position="absolute" top={105} transition="1s">
-      <Alert status="error" width="auto" borderRadius="5">
+      <Alert status={status} width="auto" borderRadius="5">
         <AlertIcon />
         <AlertTitle>{title}</AlertTitle>
       </Alert>
@@ -16,6 +16,8 @@ export default function ErrorAlert({ title }) {
   );
 }
 
-ErrorAlert.propTypes = {
+MessageAlert.propTypes = {
   title: PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired,
+
 };

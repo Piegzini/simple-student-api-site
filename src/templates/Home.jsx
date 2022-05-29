@@ -1,6 +1,6 @@
 import React from 'react';
-import Banner from '../components/Banner/Banner';
-import QuerySender from '../components/QuerySender/QuerySender';
+import Banner from '../components/atoms/Banner';
+import QuerySender from '../components/organisms/QuerySender';
 
 function Home() {
   return (

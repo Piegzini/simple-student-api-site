@@ -2,14 +2,11 @@ import React, { useState } from 'react';
 import {
   Box,
   Heading,
-
-  Text,
-  Spinner, Flex,
 } from '@chakra-ui/react';
 import axios from 'axios';
-import QueryInput from './QueryInput';
-import ResultBoard from './ResultBoard';
-import ErrorAlert from './ErrorAlert';
+import QueryInput from '../molecules/QueryInput';
+import ResultBoard from '../molecules/ResultBoard';
+import MessageAlert from '../molecules/MessageAlert';
 
 const apiAddress = 'https://simple-student-api.herokuapp.com/api/v1/';
 
@@ -23,8 +20,8 @@ function QuerySender() {
     setJsonData('');
 
     try {
-      let { data } = await axios.get(`/api/v1/${endPoint}`, {
-        headers: { Authorization: `Bearer ${import.meta.env.VITE_TOKEN}` },
+      let { data } = await axios.get(`https://simple-student-api.herokuapp.com/api/v1/${endPoint}`, {
+        headers: { Authorization: `Bearer ${import.meta.env.VITE_API}` },
       });
 
       data = JSON.stringify(data, 'space', 2);
@@ -39,7 +36,7 @@ function QuerySender() {
 
   return (
     <>
-      { error ? <ErrorAlert title={error} /> : null }
+      { error ? <MessageAlert title={error} status="error" /> : null }
       <Box width="100vw" mt="20" display="flex" flexDirection="column" alignItems="center">
         <Box width="50%">
           <Heading as="h2" textAlign="center">Try it now!</Heading>

@@ -3,10 +3,10 @@ import {
   BrowserRouter, Route, Routes,
 } from 'react-router-dom';
 import { Navigate } from 'react-router';
-import Home from './routes/Home';
-import Header from './components/Header/Header';
-import Register from './routes/Register';
-import Login from './routes/Login';
+import Home from './templates/Home';
+import Header from './components/organisms/Header';
+import Register from './templates/Register';
+import Login from './templates/Login';
 
 function App() {
   return (

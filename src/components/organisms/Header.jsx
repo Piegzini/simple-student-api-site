@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Heading, List } from '@chakra-ui/react';
-import Navlistitem from './NavListItem';
+import Navlistitem from '../molecules/NavListItem';
 
 const routes = ['Register', 'Login'];
 function Header() {
