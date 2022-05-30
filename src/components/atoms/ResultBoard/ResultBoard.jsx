@@ -11,7 +11,7 @@ export default function ResultBoard({ isPending, jsonData }) {
         </Flex>
       ) : (
         <Text as="pre">
-          {jsonData}
+          { jsonData }
         </Text>
       ) }
     </>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Heading } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
-import NavListItem from '../molecules/NavListItem';
+import NavListItem from '../NavListItem/NavListItem';
 
 function Banner({ text }) {
   return (

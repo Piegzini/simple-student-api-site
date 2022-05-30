@@ -4,7 +4,7 @@ import {
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-export default function QueryInput({ preset, submit }) {
+export default function Endpoint({ preset, submit }) {
   const [endPoint, setEndPoint] = useState('books/');
   return (
     <InputGroup size="m" width="100%">
@@ -28,7 +28,7 @@ export default function QueryInput({ preset, submit }) {
   );
 }
 
-QueryInput.propTypes = {
+Endpoint.propTypes = {
   preset: PropTypes.string.isRequired,
   submit: PropTypes.func.isRequired,
 };

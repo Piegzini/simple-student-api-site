@@ -1,13 +1,13 @@
 import React from 'react';
-import Banner from '../atoms/Banner';
-import QuerySender from '../organisms/QuerySender';
+import Banner from '../atoms/Banner/Banner';
+import ApiQueryPreview from '../organisms/ApiQueryPreview/ApiQueryPreview';
 
 const headerText = 'Try it now!';
 function Home() {
   return (
     <>
       <Banner text={headerText} />
-      <QuerySender />
+      <ApiQueryPreview />
     </>
   );
 }

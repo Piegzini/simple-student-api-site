@@ -4,13 +4,14 @@ import {
   Heading, Input, InputGroup, InputLeftAddon, InputRightAddon,
 } from '@chakra-ui/react';
 import axios from 'axios';
-import QueryInput from '../molecules/QueryInput';
-import ResultBoard from '../molecules/ResultBoard';
-import MessageAlert from '../molecules/MessageAlert';
+import Endpoint from '../../molecules/inputs/Endpoint';
+import ResultBoard from '../../atoms/ResultBoard/ResultBoard';
+import MessageAlert from '../../atoms/MessageAlert/MessageAlert';
+import Authorization from '../../molecules/inputs/Authorization';
 
 const apiAddress = 'https://simple-student-api.herokuapp.com/api/v1/';
 
-function QuerySender() {
+function ApiQueryPreview() {
   const [isRequestPending, setRequestIsPending] = useState(false);
   const [token, setToken] = useState('');
   const [jsonData, setJsonData] = useState('');
@@ -37,22 +38,13 @@ function QuerySender() {
 
   return (
     <>
+      {/* error alert */}
       { error ? <MessageAlert title={error} status="error" /> : null }
 
       <Box width="100vw" mt="16" display="flex" flexDirection="column" alignItems="center">
-        <Box width="40%" mt="10" display="flex" justifyContent="center" maxWidth="500px">
-          <InputGroup size="m" width="100%">
-            <InputLeftAddon px="3" children="Authorization token" backgroundColor="primary" padding="8px" />
-            <Input
-              value={token}
-              onChange={(e) => setToken(e.target.value)}
-              px="2"
-              minWidth="100px"
-            />
-          </InputGroup>
-        </Box>
+        <Authorization token={token} setToken={setToken} />
         <Box width="50%" mt="10" display="flex" justifyContent="center" maxWidth="700px">
-          <QueryInput preset={apiAddress} submit={sendApiRequest} />
+          <Endpoint preset={apiAddress} submit={sendApiRequest} />
         </Box>
         <Box
           width="30%"
@@ -67,8 +59,7 @@ function QuerySender() {
         </Box>
       </Box>
     </>
-
   );
 }
 
-export default QuerySender;
+export default ApiQueryPreview;
