@@ -5,11 +5,15 @@ import {
 } from '@chakra-ui/react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import MessageAlert from '../components/molecules/MessageAlert';
+import MessageAlert from '../molecules/MessageAlert';
+import Banner from '../atoms/Banner';
+
+const headerText = 'Register to get full access token!';
 
 function Register() {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
+
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
 
@@ -26,13 +30,11 @@ function Register() {
 
   return (
     <>
-      { success ? <MessageAlert title="Your token has been send to your email!" status="success" /> : null }
+      { success ? <MessageAlert title="Well Done, your account has been created, You will be navigate to login page" status="success" /> : null }
       <Box display="flex" flexDirection="column" justifyContent="center">
-        <Box width="100%" mt="10">
-          <Heading textAlign="center">Register to get full access token</Heading>
-        </Box>
+        <Banner text={headerText} />
 
-        <Box width="100%" display="flex" justifyContent="center" mt="20">
+        <Box width="100%" display="flex" justifyContent="center" mt="12">
           <Box
             as="form"
             minWidth="250px"

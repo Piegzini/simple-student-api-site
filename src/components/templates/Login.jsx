@@ -5,7 +5,10 @@ import {
 } from '@chakra-ui/react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import MessageAlert from '../components/molecules/MessageAlert';
+import MessageAlert from '../molecules/MessageAlert';
+import Banner from '../atoms/Banner';
+
+const headerText = 'Login to get your new access token!';
 
 export default function Login() {
   const { register, handleSubmit } = useForm();
@@ -15,6 +18,7 @@ export default function Login() {
   const [success, setSuccess] = useState(false);
 
   const send = async (data) => {
+    setError('');
     try {
       await axios.post('https://simple-student-api.herokuapp.com/service/login', { ...data });
       setSuccess(true);
@@ -26,11 +30,9 @@ export default function Login() {
 
   return (
     <Box display="flex" flexDirection="column" justifyContent="center">
-      { success ? <MessageAlert title="Well Done, your account has been created, You will be navigate to login page" status="success" /> : null }
+      { success ? <MessageAlert title="Your token has been send to your email!" status="success" /> : null }
 
-      <Box width="100%" mt="10">
-        <Heading textAlign="center">Register to get full access token</Heading>
-      </Box>
+      <Banner text={headerText} />
 
       <Box width="100%" display="flex" justifyContent="center" mt="20">
         <Box
